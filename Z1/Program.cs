@@ -33,16 +33,23 @@ void PrintMatrix(int[,] matrixForPrint)
         System.Console.WriteLine();
     }
 }
-///--------
+int[,] matrix = GenerateMatrix(2, 3, 1, 10);
+
+int rowsIndex = ReadInt("Задайте номер строки искомого элемента: ");
+
+int colsIndex = ReadInt("Задайте номер столбца искомого элемента: ");
+
+//проверка входит ли число в границы массива
+
+if (rowsIndex < 3 && colsIndex < 4)
+{
+    Console.WriteLine("Вы это число загадали? ");
+    Console.WriteLine(matrix[rowsIndex - 1, colsIndex - 1]);
+}
+else
+     Console.WriteLine("Массив не содержит такой элемент");
 
 
-
-///----------
-int rows = ReadInt("Введите количество строк в матрице: ");
-
-int cols = ReadInt("Введите количество столбцов в матрице: ");
-
-int[,] matrix = GenerateMatrix(rows, cols, 1, 10);
-
+Console.WriteLine("Вот такой у нас массив: \t ");
 PrintMatrix(matrix);
 
