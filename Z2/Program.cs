@@ -33,17 +33,26 @@ void PrintMatrix(int[,] matrixForPrint)
         System.Console.WriteLine();
     }
 }
-///--------
-
-
-
-///----------
-int rows = ReadInt("Введите количество строк в матрице: ");
-
-int cols = ReadInt("Введите количество столбцов в матрице: ");
-
-int[,] matrix = GenerateMatrix(rows, cols, 1, 10);
+Console.WriteLine("Исходный массив:  ");
+int[,] matrix = GenerateMatrix(4, 4, 0, 9);
 
 PrintMatrix(matrix);
 
+Console.WriteLine("Перевернутый массив: \t ");
+
+            for(int i = 0; i < matrix.GetLength(1); i++)
+            {
+                var tmp = matrix[3, i];
+                matrix[3, i] = matrix[0, i];
+                matrix[0, i] = tmp;
+            }
+            for(int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for(int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i,j] + "\t");
+                }
+                Console.WriteLine();
+            }
+      
 
