@@ -33,11 +33,6 @@ void PrintMatrix(int[,] matrixForPrint)
         System.Console.WriteLine();
     }
 }
-///--------
-
-
-
-///----------
 int rows = ReadInt("Введите количество строк в матрице: ");
 
 int cols = ReadInt("Введите количество столбцов в матрице: ");
@@ -45,4 +40,27 @@ int cols = ReadInt("Введите количество столбцов в ма
 int[,] matrix = GenerateMatrix(rows, cols, 1, 10);
 
 PrintMatrix(matrix);
+
+int SumLine(int[,] matrix, int i)
+{
+int sum = matrix[i,0];
+for (int j = 1; j < matrix.GetLength(1); j++)
+{
+sum += matrix[i,j];
+}
+return sum;
+}
+
+int minSum = 1;
+int sum = SumLine(matrix, 0);
+for (int i = 1; i < matrix.GetLength(0); i++)
+{
+if (sum > SumLine(matrix, i))
+{
+sum = SumLine(matrix, i);
+minSum = i+1;
+}
+}
+Console.WriteLine("Строка c наименьшей суммой элементов: №" + (minSum));
+
 
